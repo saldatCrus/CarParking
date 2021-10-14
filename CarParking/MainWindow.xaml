@@ -1,0 +1,34 @@
+﻿<Window x:Class="CarParking.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarParking"
+        mc:Ignorable="d"
+        DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainViewModel}"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" Content="Авторизация" Command="{Binding OpAutorisation}"/>
+            <Button Grid.Row="1" Content="Менеджер стоянок" Command="{Binding OpMenegParking}" IsEnabled="{Binding MenegParkingEnable}"/>
+            <Button Grid.Row="4" Content="Стоянки" Command="{Binding OpParking}" IsEnabled="{Binding ParkingEnable}"/>
+            <Button Grid.Row="3" Content="Аккаунты" Command="{Binding OpAccount}"  IsEnabled="{Binding AccountEnable}"/>
+            <Button Grid.Row="2" Content="Машины" Command="{Binding OpCars}" IsEnabled="{Binding CarsEnable}"/>
+        </Grid>
+
+        <Frame Content="{Binding MemberTrackPage}" NavigationUIVisibility="Hidden" Grid.Column="1"/>
+    </Grid>
+</Window>
