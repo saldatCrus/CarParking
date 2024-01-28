@@ -35,7 +35,7 @@ namespace CarParking
             services.AddSingleton<EventBus>();
             services.AddSingleton<СurrentUserService>();
             services.AddSingleton<MessageBus>();
-            services.AddTransient<AppDbContext>();
+            //services.AddTransient<AppDbContext>();
 
             _provaider = services.BuildServiceProvider();
 
