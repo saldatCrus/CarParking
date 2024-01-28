@@ -40,25 +40,28 @@ namespace CarParking.ViewModels
 
         public ICommand Aut => new DelegateCommand(async () =>
         {
-            foreach (var item in Accounts)
-            {
-                if (item.Login == LoginTxt && item.Password == PassTxt)
-                {
-                    if (item.IsAdministrator)
-                    {
-                        _CurrentUserService.SetСurrentAccount(item);
-                        await _EventBus.Publish(new AdminAut());
 
-                    }
-                    else 
-                    {
-                        _CurrentUserService.SetСurrentAccount(item);
-                        await _EventBus.Publish(new UserAut());
+            await _EventBus.Publish(new AdminAut());
 
-                    }
-                    
-                }
-            }
+            //foreach (var item in Accounts)
+            //{
+            //    if (item.Login == LoginTxt && item.Password == PassTxt)
+            //    {
+            //        if (item.IsAdministrator)
+            //        {
+            //            _CurrentUserService.SetСurrentAccount(item);
+            //            await _EventBus.Publish(new AdminAut());
+
+            //        }
+            //        else
+            //        {
+            //            _CurrentUserService.SetСurrentAccount(item);
+            //            await _EventBus.Publish(new UserAut());
+
+            //        }
+
+            //    }
+            //}
         });
     }
 }

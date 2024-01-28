@@ -25,7 +25,7 @@ namespace CarParking.ViewModels
         {
             _AppDbContext = appDbContext;
 
-            ParkingPlaces = new ObservableCollection<ParkingPlace>(_AppDbContext.ParkingPlaces.ToList());
+            //ParkingPlaces = new ObservableCollection<ParkingPlace>(_AppDbContext.ParkingPlaces.ToList());
 
             var accountResult = _AppDbContext.ParkingPlaces.Include(c => c.Account).ToList();
 
